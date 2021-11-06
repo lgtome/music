@@ -5,14 +5,18 @@
   align-items: center;
 }
 
-.button {
+.wrapper {
   color: rgba(222, 219, 219, 0.65);
   background: none;
   transition: color 1s ease;
   font-size: 100px;
   cursor: pointer;
 
-  & > span > svg {
+  & > * {
+    font-size: 150px;
+  }
+
+  & > svg {
     font-size: 100px;
   }
 
