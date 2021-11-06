@@ -60,11 +60,15 @@ export function MusicPlayer() {
 
     useEffect(() => {
         !paused && setPaused(prev => !prev)
+
         if (preview) {
             setSrc(preview)
-            paused && setPaused(prev => !prev)
+            playerRef.current.volume = 0.5
+            playerRef.current.muted = false
             playerRef.current.load()
+            paused && setPaused(prev => !prev)
         }
+
     }, [preview])
 
     function changeVolume(event) {
@@ -149,10 +153,9 @@ export function MusicPlayer() {
                     <VolumeUpRounded htmlColor={lightIconColor}/>
                 </Stack>
             </Widget>
-            <audio controls ref={playerRef} hidden={'hidden'}>
+            <audio controls ref={playerRef} hidden={'hidden'} muted autoPlay>
                 <source src={src}/>
             </audio>
-
         </Box>
     )
 }
