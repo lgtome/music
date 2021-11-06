@@ -43,13 +43,6 @@ const CoverImage = styled('div')({
     },
 })
 
-const TinyText = styled(Typography)({
-    fontSize: '0.75rem',
-    opacity: 0.38,
-    fontWeight: 500,
-    letterSpacing: 0.2,
-})
-
 export function MusicPlayer() {
     const theme = useTheme()
     const [paused, setPaused] = useState(true)
@@ -66,9 +59,11 @@ export function MusicPlayer() {
     }, [paused])
 
     useEffect(() => {
+        !paused && setPaused(prev => !prev)
         if (preview) {
             setSrc(preview)
             playerRef.current.load()
+            paused && setPaused(prev => !prev)
         }
     }, [preview])
 
