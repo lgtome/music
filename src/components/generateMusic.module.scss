@@ -12,6 +12,10 @@
   font-size: 100px;
   cursor: pointer;
 
+  & > span > svg {
+    font-size: 100px;
+  }
+
   &:hover {
     background: none;
     color: #313131;
