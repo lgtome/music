@@ -1,34 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Music app <s>currently</s> works with deezer api.
 
-## Getting Started
+#### Tasks to the future:
 
-First, run the development server:
+> implementation spotify and sc apis
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+> search tracks & albums & artists
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> auth
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+> ⁉️
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Tech
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+App uses a current stack to work properly:
 
-## Learn More
+- [NextJs] - The React framework for production.
+- [ReactJs] - A JS library for building user interfaces.
+- [Framer motion] - library that's designed for all creative developers.
+- [Axios] - Promise based HTTP client for the browser and node.js.
+- [MUI] - The world's most popular React UI framework.
+- [Redux toolkit] - Toolset for efficient Redux development.
+- [Fetch jsonp] - API to fetch JSONP.
+- [Next redux wrapper] - A HOC that brings Next.js and Redux together.
+- [SASS] - CSS with superpowers.
+- [Fontsource] - Self-host open source fonts.
 
-To learn more about Next.js, take a look at the following resources:
+### <center>⛈💩⛈</center>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[NextJs]: <https://nextjs.org/>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+[ReactJs]: <https://reactjs.org/>
 
-## Deploy on Vercel
+[Framer motion]: <https://www.framer.com/docs/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[Axios]: <https://axios-http.com/docs/intro>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[MUI]: <https://mui.com/getting-started/usage/>
+
+[Redux toolkit]: <https://redux-toolkit.js.org/>
+
+[Fetch jsonp]: <https://github.com/camsong/fetch-jsonp>
+
+[SASS]: <https://sass-lang.com/>
+
+[Next redux wrapper]: <https://github.com/kirill-konshin/next-redux-wrapper>
+
+[Fontsource]: <https://fontsource.org/>
