@@ -1,4 +1,4 @@
-import '../../styles/index.scss'
+import '../../styles/globals.css'
 import '@fontsource/cagliostro'
 import {wrapper} from '../redux/store'
 

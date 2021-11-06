@@ -1,10 +1,12 @@
 import {combineReducers} from '@reduxjs/toolkit'
 import authSlice from './authSlice'
 import {HYDRATE} from 'next-redux-wrapper'
+import playerSlice from './playerSlice'
 
 
 export const rootReducer = combineReducers({
-    auth: authSlice
+    auth: authSlice,
+    player: playerSlice
 })
 export const reducer = (state, action) => {
     if (action.type === HYDRATE) {

@@ -1,5 +1,14 @@
-.wrapper {
+@import "styles/index.scss";
 
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(180deg, #18e3ae, #070909);
+  background-size: 400% 400%;
+  @include bgAnimation(15s);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .content {
