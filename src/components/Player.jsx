@@ -62,8 +62,8 @@ export function MusicPlayer() {
         !paused && setPaused(prev => !prev)
         if (preview) {
             setSrc(preview)
-            playerRef.current.load()
             paused && setPaused(prev => !prev)
+            playerRef.current.load()
         }
     }, [preview])
 
