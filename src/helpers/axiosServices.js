@@ -10,5 +10,5 @@ export const axiosInstance = axios.create({
 
 export async function authDeezer() {
     return await axios.get(
-        `https://connect.deezer.com/oauth/auth.php?app_id=512002&redirect_uri=http://localhost:3000/&perms=basic_access,email`)
+        `https://connect.deezer.com/oauth/auth.php?app_id=${process.env.API_KEY || 512002}redirect_uri=${process.env.REDIRECT_URL || 'https://music-own.vercel.app/'}&perms=basic_access,email`)
 }
