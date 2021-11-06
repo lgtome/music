@@ -30,7 +30,7 @@ export const GenerateMusic = () => {
     function generateNewMusic() {
         generateNewTrack()
     }
-    
+
     return (
         <>
             <motion.div className={styles.reload}
@@ -38,10 +38,11 @@ export const GenerateMusic = () => {
                         transition={{duration: 2, type: 'spring'}}
                         onClick={generateNewMusic}
             >
-                <motion.span
+                <motion.div
                     whileTap={{rotate: 360, transition: {duration: 1, type: 'spring'}}}
                 >
-                    <CachedIcon className={styles.button}/></motion.span>
+                    <CachedIcon className={styles.button}/>
+                </motion.div>
             </motion.div>
         </>
     )
