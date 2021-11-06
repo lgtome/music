@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux'
 import CachedIcon from '@mui/icons-material/Cached'
 import {IconButton} from '@mui/material'
 import styles from './generateMusic.module.scss'
+import axios from 'axios'
 
 
 export const GenerateMusic = () => {
@@ -15,6 +16,7 @@ export const GenerateMusic = () => {
     useEffect(() => {
         authDeezer()
     }, [])
+
     useEffect(() => {
         const interval = setInterval(() => {
             fetchRandomTrack()
@@ -28,7 +30,7 @@ export const GenerateMusic = () => {
     function generateNewMusic() {
         generateNewTrack()
     }
-
+    
     return (
         <>
             <motion.div className={styles.reload}
@@ -41,7 +43,6 @@ export const GenerateMusic = () => {
                 >
                     <CachedIcon className={styles.button}/></motion.span>
             </motion.div>
-
         </>
     )
 }

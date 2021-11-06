@@ -18,7 +18,7 @@ export const fetchRandomTrack = createAsyncThunk('player/fetchRandomTrack',
         try {
             // console.log(getRandomTrack(), 'fetch works')
             const res = await axios.get(
-                `https://api.deezer.com/track/${getRandomTrack()}`)
+                `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${getRandomTrack()}`)
                 .then(data => data.data)
             if (res.error) {
                 // console.log(res.error.code, 'worked!')

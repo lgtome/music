@@ -10,5 +10,13 @@ export const axiosInstance = axios.create({
 
 export async function authDeezer() {
     return await axios.get(
-        `https://connect.deezer.com/oauth/auth.php?app_id=${process.env.API_KEY || 512002}redirect_uri=${process.env.REDIRECT_URL || 'https://music-own.vercel.app/'}&perms=basic_access,email`)
+        `https://cors-anywhere.herokuapp.com/https://connect.deezer.com/oauth/auth.php?app_id=${process.env.API_KEY || '512002'}&redirect_uri=${process.env.REDIRECT_URL || 'http://localhost:3000/'}&perms=basic_access,email`,
+        {
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Methods': 'GET, PUT, POST, DELETE, OPTIONS'
+            },
+        })
 }
