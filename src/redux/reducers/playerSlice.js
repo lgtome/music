@@ -1,5 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {getRandomTrack} from '../../helpers/getRandomTrack'
+import fetchJsonp from 'fetch-jsonp'
 import axios from 'axios'
 
 
@@ -17,14 +18,27 @@ export const fetchRandomTrack = createAsyncThunk('player/fetchRandomTrack',
     async (_, {rejectWithValue, getState}) => {
         try {
             // console.log(getRandomTrack(), 'fetch works')
-            const res = await axios.get(
-                `https://cors-anywhere.herokuapp.com/https://api.deezer.com/track/${getRandomTrack()}`)
-                .then(data => data.data)
+            // const res = await axios.get(
+            //     `https://api.deezer.com/track/${getRandomTrack()}`, {
+            //         headers: {
+            //             'Access-Control-Allow-Origin': 'http://localhost:3000',
+            //             'Content-Type': 'application/json'
+            //         },
+            //         params: {
+            //             output: 'jsonp'
+            //         }
+            //     })//https://cors-anywhere.herokuapp.com/
+            //     .then(data => data.data)
+            const res = await fetchJsonp(
+                `https://api.deezer.com/track/${getRandomTrack()}&output=jsonp`)
+                .then(function (response) {
+                    return response.json()
+                })
+                .then(json => json)
             if (res.error) {
                 // console.log(res.error.code, 'worked!')
                 throw new Error('err')
             }
-            console.log(res, 'res')
             return res
         } catch (e) {
             return rejectWithValue(e.message)

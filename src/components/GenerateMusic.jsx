@@ -36,11 +36,11 @@ export const GenerateMusic = () => {
             <motion.div className={styles.reload}
                         animate={{rotate: 360}}
                         transition={{duration: 2, type: 'spring'}}
-                        onClick={generateNewMusic}
             >
                 <motion.div
                     className={styles.wrapper}
                     whileTap={{rotate: 360, transition: {duration: 1, type: 'spring'}}}
+                    onClick={generateNewMusic}
                 >
                     <CachedIcon/>
                 </motion.div>
