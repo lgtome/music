@@ -14,3 +14,19 @@
     }
   }
 }
+
+@mixin bgModal($duration) {
+  animation: bgAnim $duration infinite cubic-bezier(.27, .47, .63, .47);
+  @keyframes bgAnim {
+    0% {
+      background-position: 10% 10%;
+    }
+    50% {
+      background-position: 50% 75%;
+
+    }
+    100% {
+      background-position: 10% 10%;
+    }
+  }
+}

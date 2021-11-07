@@ -14,6 +14,7 @@
     "@fontsource/zen-dots": "^4.5.0",
     "@mui/icons-material": "^5.0.5",
     "@mui/material": "^5.0.6",
+    "@reach/portal": "^0.16.2",
     "@reduxjs/toolkit": "^1.6.2",
     "add": "^2.0.6",
     "axios": "^0.24.0",

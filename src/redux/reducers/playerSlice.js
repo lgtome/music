@@ -17,18 +17,6 @@ const initialState = {
 export const fetchRandomTrack = createAsyncThunk('player/fetchRandomTrack',
     async (_, {rejectWithValue, getState}) => {
         try {
-            // console.log(getRandomTrack(), 'fetch works')
-            // const res = await axios.get(
-            //     `https://api.deezer.com/track/${getRandomTrack()}`, {
-            //         headers: {
-            //             'Access-Control-Allow-Origin': 'http://localhost:3000',
-            //             'Content-Type': 'application/json'
-            //         },
-            //         params: {
-            //             output: 'jsonp'
-            //         }
-            //     })//https://cors-anywhere.herokuapp.com/
-            //     .then(data => data.data)
             const res = await fetchJsonp(
                 `https://api.deezer.com/track/${getRandomTrack()}&output=jsonp`)
                 .then(function (response) {
@@ -44,6 +32,7 @@ export const fetchRandomTrack = createAsyncThunk('player/fetchRandomTrack',
             return rejectWithValue(e.message)
         }
     })
+
 
 const playerSlice = createSlice({
     name: 'player',

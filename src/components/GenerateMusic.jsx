@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {motion} from 'framer-motion'
+import {AnimatePresence, motion, useAnimation} from 'framer-motion'
 import {authDeezer} from '../helpers/axiosServices'
 import {useActions} from '../hooks/useActions'
 import {useSelector} from 'react-redux'
@@ -8,12 +8,12 @@ import {IconButton} from '@mui/material'
 import styles from './generateMusic.module.scss'
 import axios from 'axios'
 import {FirstInteraction} from './FirstInteraction'
+import {motions} from '../utils'
 
 
 export const GenerateMusic = () => {
     const {fetchRandomTrack, toggleLoading, generateNewTrack} = useActions()
     const {isError, isLoading, preview} = useSelector(state => state.player)
-
     useEffect(() => {
         authDeezer()
     }, [])
@@ -37,22 +37,25 @@ export const GenerateMusic = () => {
         <>
             {
                 preview === 'init'
-                    ? <motion.div
+                    ?
+                    <motion.div
                         className={styles.first}
-                        initial={{y: '-1000px'}}
-                        animate={{y: 0}}
+                        initial={'initial'}
+                        animate={'active'}
                         transition={{duration: 2, type: 'spring'}}
+                        variants={motions.defaultMotion}
                     >
                         <FirstInteraction/>
                     </motion.div>
-                    : <motion.div className={styles.reload}
-                                  initial={{y: '-500px'}}
-                                  animate={{rotate: 360, y: 0}}
-                                  transition={{duration: 2, type: 'spring'}}
+                    :
+                    <motion.div className={styles.reload}
+                                animate={'active'}
+                                transition={'transition'}
+                                variants={motions.defaultMotion}
                     >
                         <motion.div
                             className={styles.wrapper}
-                            whileTap={{scale: 0.7, transition: {duration: 1, type: 'spring'}}}
+                            whileTap={{scale: 0.6, transition: {duration: 0.7, type: 'spring'}}}
                             onClick={generateNewMusic}
                         >
                             <CachedIcon/>

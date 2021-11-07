@@ -54,20 +54,24 @@ export function MusicPlayer() {
 
     useEffect(() => {
         if (playerRef.current) {
+            console.log('works')
             paused ? playerRef.current.pause() : playerRef.current.play()
         }
     }, [paused])
 
     useEffect(() => {
-        !paused && setPaused(prev => !prev)
-
-        if (preview && preview !== 'init') {
-            setSrc(preview)
-            playerRef.current.volume = 0.5
-            playerRef.current.muted = false
-            playerRef.current.load()
-            paused && setPaused(prev => !prev)
+        async function loadMusic() {
+            !paused && setPaused(prev => !prev)
+            if (preview && preview !== 'init') {
+                setSrc(preview)
+                playerRef.current.volume = 0.5
+                playerRef.current.muted = false
+                await playerRef.current.load()
+                paused && setPaused(prev => !prev)
+            }
         }
+
+        loadMusic()
 
     }, [preview])
 
@@ -153,7 +157,7 @@ export function MusicPlayer() {
                     <VolumeUpRounded htmlColor={lightIconColor}/>
                 </Stack>
             </Widget>
-            <audio controls ref={playerRef} autoPlay>
+            <audio controls ref={playerRef} autoPlay hidden={'hidden'}>
                 <source src={src}/>
             </audio>
         </Box>

@@ -1,4 +1,6 @@
 import {authActions} from './reducers/authSlice'
+import {modalActions} from './reducers/modalSlice'
+import {fetchTrackByArtist} from './reducers/searchSlice'
 import {
     fetchRandomTrack,
     toggleLoading,
@@ -7,5 +9,6 @@ import {
 
 
 export default {
-    ...authActions, fetchRandomTrack, toggleLoading, generateNewTrack
+    ...authActions, ...modalActions,
+    fetchRandomTrack, toggleLoading, generateNewTrack, fetchTrackByArtist
 }

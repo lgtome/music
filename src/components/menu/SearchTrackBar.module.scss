@@ -1,0 +1,23 @@
+.wrapper {
+  position: absolute;
+  max-width: 400px;
+  max-height: 200px;
+  top: 2%;
+  left: 50%;
+  transform: translate(-50%, -2%);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.btn {
+  font-size: 40px;
+}
+
+.tiny {
+  font-size: 1.2rem;
+  color: #505050;
+}
