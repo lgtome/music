@@ -153,7 +153,7 @@ export function MusicPlayer() {
                     <VolumeUpRounded htmlColor={lightIconColor}/>
                 </Stack>
             </Widget>
-            <audio controls ref={playerRef} hidden={'hidden'} muted autoPlay>
+            <audio controls ref={playerRef} hidden={'hidden'}>
                 <source src={src}/>
             </audio>
         </Box>
