@@ -1,6 +1,6 @@
 ## <span style='color:#CC7832'> Music app <s>currently</s> works with deezer api.</span>
 
-# <center>  [test it out...]  </center>
+# <center>  [Test It Out...]  </center>
 
 #### Tasks to the future:
 
@@ -49,4 +49,4 @@ App uses a current stack to work properly:
 
 [Fontsource]: <https://fontsource.org/>
 
-[test it out...]: <https://music-own.vercel.app/>
+[Test It Out...]: <https://music-own.vercel.app/>
