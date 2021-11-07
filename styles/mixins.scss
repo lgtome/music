@@ -1,14 +1,16 @@
 @mixin bgAnimation($duration) {
-  animation: bgAnim $duration infinite cubic-bezier(.17, .67, .83, .67);
+  animation: bgAnim $duration infinite cubic-bezier(.27, .47, .63, .47);
   @keyframes bgAnim {
     0% {
-      background-position: 50% 30%
+      background-position: 75% 75%;
+
     }
     50% {
-      background-position: 50% 60%
+      background-position: 50% 25%;
+
     }
     100% {
-      background-position: 50% 30%
+      background-position: 75% 50%;
     }
   }
 }

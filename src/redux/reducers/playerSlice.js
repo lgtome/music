@@ -9,7 +9,7 @@ const initialState = {
     duration: 0,
     name: '',
     albumCover: 'https://via.placeholder.com/150',
-    preview: '',
+    preview: 'init',
     isError: true,
     isLoading: true
 }

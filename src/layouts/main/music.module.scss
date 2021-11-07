@@ -3,8 +3,9 @@
 .wrapper {
   height: 100vh;
   width: 100%;
-  background: linear-gradient(180deg, #18e3ae, #070909);
-  background-size: 400% 400%;
+  background-color: rgba(240, 238, 243, 1);
+  background-image: url('../../assets/images/bubbles.svg');
+  background-position: 75% 75%;
   @include bgAnimation(15s);
   display: flex;
   align-items: flex-end;

@@ -61,7 +61,7 @@ export function MusicPlayer() {
     useEffect(() => {
         !paused && setPaused(prev => !prev)
 
-        if (preview) {
+        if (preview && preview !== 'init') {
             setSrc(preview)
             playerRef.current.volume = 0.5
             playerRef.current.muted = false

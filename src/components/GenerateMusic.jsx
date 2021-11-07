@@ -7,6 +7,7 @@ import CachedIcon from '@mui/icons-material/Cached'
 import {IconButton} from '@mui/material'
 import styles from './generateMusic.module.scss'
 import axios from 'axios'
+import {FirstInteraction} from './FirstInteraction'
 
 
 export const GenerateMusic = () => {
@@ -31,20 +32,33 @@ export const GenerateMusic = () => {
         generateNewTrack()
     }
 
+
     return (
         <>
-            <motion.div className={styles.reload}
-                        animate={{rotate: 360}}
+            {
+                preview === 'init'
+                    ? <motion.div
+                        className={styles.first}
+                        initial={{y: '-1000px'}}
+                        animate={{y: 0}}
                         transition={{duration: 2, type: 'spring'}}
-            >
-                <motion.div
-                    className={styles.wrapper}
-                    whileTap={{rotate: 360, transition: {duration: 1, type: 'spring'}}}
-                    onClick={generateNewMusic}
-                >
-                    <CachedIcon/>
-                </motion.div>
-            </motion.div>
+                    >
+                        <FirstInteraction/>
+                    </motion.div>
+                    : <motion.div className={styles.reload}
+                                  initial={{y: '-500px'}}
+                                  animate={{rotate: 360, y: 0}}
+                                  transition={{duration: 2, type: 'spring'}}
+                    >
+                        <motion.div
+                            className={styles.wrapper}
+                            whileTap={{scale: 0.7, transition: {duration: 1, type: 'spring'}}}
+                            onClick={generateNewMusic}
+                        >
+                            <CachedIcon/>
+                        </motion.div>
+                    </motion.div>
+            }
         </>
     )
 }
