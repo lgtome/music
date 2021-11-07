@@ -1,4 +1,6 @@
-## Music app <s>currently</s> works with deezer api.
+## <span style='color:#CC7832'> Music app <s>currently</s> works with deezer api.</span>
+
+# <center>  [test it out...]  </center>
 
 #### Tasks to the future:
 
@@ -10,7 +12,7 @@
 
 > ⁉️
 
-## Tech
+## <span style='color:#CC7832'> Tech </span>
 
 App uses a current stack to work properly:
 
@@ -46,3 +48,5 @@ App uses a current stack to work properly:
 [Next redux wrapper]: <https://github.com/kirill-konshin/next-redux-wrapper>
 
 [Fontsource]: <https://fontsource.org/>
+
+[test it out...]: <https://music-own.vercel.app/>
