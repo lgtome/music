@@ -1,9 +1,10 @@
 import {Music} from '../layouts'
-import {GenerateMusic} from '../components/GenerateMusic'
 import {LeftSidebar} from '../components/menu/LeftSidebar'
 import {RightSidebar} from '../components/menu/RightSidebar'
 import {SearchTrackBar} from '../components/menu/SearchTrackBar'
 import {Modal} from '../components/modal/Modal'
+import {SearchTrackByArtist} from '../components/modal/SearchTrackByArtist'
+import React from 'react'
 
 
 export default function Home() {
@@ -14,7 +15,9 @@ export default function Home() {
             {/*<RightSidebar/>*/}
             <SearchTrackBar/>
             <Music/>
-            <Modal/>
+            <Modal>
+                <SearchTrackByArtist/>
+            </Modal>
         </>
     )
 }

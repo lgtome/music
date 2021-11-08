@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {AnimatePresence, motion, useAnimation} from 'framer-motion'
-import {authDeezer} from '../helpers/axiosServices'
+import {authD, authDeezer} from '../helpers/axiosServices'
 import {useActions} from '../hooks/useActions'
 import {useSelector} from 'react-redux'
 import CachedIcon from '@mui/icons-material/Cached'

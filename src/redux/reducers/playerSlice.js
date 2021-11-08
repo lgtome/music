@@ -19,12 +19,9 @@ export const fetchRandomTrack = createAsyncThunk('player/fetchRandomTrack',
         try {
             const res = await fetchJsonp(
                 `https://api.deezer.com/track/${getRandomTrack()}&output=jsonp`)
-                .then(function (response) {
-                    return response.json()
-                })
+                .then(res => res.json())
                 .then(json => json)
             if (res.error) {
-                // console.log(res.error.code, 'worked!')
                 throw new Error('err')
             }
             return res

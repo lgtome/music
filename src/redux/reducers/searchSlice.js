@@ -1,11 +1,14 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
-import axios from 'axios'
 import fetchJsonp from 'fetch-jsonp'
-import {getRandomTrack} from '../../helpers/getRandomTrack'
 
 
 const initialState = {
-    currentTrack: {}
+    currentTrack: {},
+    isLoading: false,
+    error: {
+        flag: false,
+        message: ''
+    }
 }
 
 export const fetchTrackByArtist = createAsyncThunk('search/fetchTrackByArtist',
@@ -31,8 +34,17 @@ const searchSlice = createSlice({
     name: 'search',
     initialState,
     extraReducers: {
+        [fetchTrackByArtist.pending]: (state, action) => {
+            state.isLoading = true
+        },
         [fetchTrackByArtist.fulfilled]: (state, action) => {
             state.currentTrack = action.payload
+            state.isLoading = false
+        },
+        [fetchTrackByArtist.rejected]: (state, action) => {
+            state.isLoading = false
+            state.error.flag = true
+            state.error.message = action.payload
         }
     }
 })

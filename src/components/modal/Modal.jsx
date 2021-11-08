@@ -9,7 +9,7 @@ import styles from './Modal.module.scss'
 import {SearchTrackByArtist} from './SearchTrackByArtist'
 
 
-export const Modal = () => {
+export const Modal = ({children}) => {
     const {isOpen} = useSelector(state => state.modal)
     const {toggleModal} = useActions()
     return (
@@ -27,7 +27,7 @@ export const Modal = () => {
                     >
                         <div className={styles.content}
                              onClick={(e) => e.stopPropagation()}>
-                            <SearchTrackByArtist/>
+                            {children}
                         </div>
                     </motion.div>
                 }

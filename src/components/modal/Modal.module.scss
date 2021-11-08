@@ -20,9 +20,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 70%;
-  height: 20vh;
-  background: wheat;
+  min-height: 40vh;
+  background: whitesmoke;
   cursor: default;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 6px;
 }
