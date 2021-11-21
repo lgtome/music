@@ -53,7 +53,7 @@ export function MusicPlayer() {
     const [src, setSrc] = useState('')
     const {name, track, preview, albumCover} = useSelector(
         state => state.player)
-    const [volume, setVolume] = useState(50)
+    const [volume, setVolume] = useState(+localStorageService.getValue('volume') || 50)
     useEffect(() => {
         if (playerRef.current) {
             paused ? playerRef.current.pause() : playerRef.current.play()
@@ -79,7 +79,7 @@ export function MusicPlayer() {
         if (playerRef.current) {
             playerRef.current.addEventListener('ended', endHandler)
         }
-        
+
         if (localStorageService.getValue('volume')) {
             setVolume(+localStorageService.getValue('volume'))
         }
