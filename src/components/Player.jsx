@@ -66,7 +66,6 @@ export function MusicPlayer() {
             !paused && setPaused(prev => !prev)
             if (preview && preview !== 'init') {
                 setSrc(preview)
-                playerRef.current.volume = 0.5
                 playerRef.current.muted = false
                 await playerRef.current.load()
                 paused && setPaused(prev => !prev)
@@ -76,10 +75,8 @@ export function MusicPlayer() {
         loadMusic()
     }, [preview])
     useEffect(() => {
-        const endHandler = event => {
-            generateNewTrack()
-            setVolume(+localStorageService.getValue('volume') || 50)
-        }
+        const endHandler = event => generateNewTrack()
+
         if (playerRef.current) {
             playerRef.current.addEventListener('ended', endHandler)
         }
