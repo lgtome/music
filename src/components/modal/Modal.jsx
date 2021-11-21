@@ -6,7 +6,6 @@ import {useSelector} from 'react-redux'
 import {useActions} from '../../hooks/useActions'
 import {AnimatePresence} from 'framer-motion'
 import styles from './Modal.module.scss'
-import {SearchTrackByArtist} from './SearchTrackByArtist'
 
 
 export const Modal = ({children}) => {

@@ -10,6 +10,8 @@ import PlayArrowRounded from '@mui/icons-material/PlayArrowRounded'
 import VolumeUpRounded from '@mui/icons-material/VolumeUpRounded'
 import VolumeDownRounded from '@mui/icons-material/VolumeDownRounded'
 import {useSelector} from 'react-redux'
+import {useActions} from '../hooks/useActions'
+import {localStorageService} from '../helpers/localStorageService'
 
 
 const Widget = styled('div')(({theme}) => ({
@@ -45,16 +47,15 @@ const CoverImage = styled('div')({
 
 export function MusicPlayer() {
     const theme = useTheme()
+    const {generateNewTrack} = useActions()
     const [paused, setPaused] = useState(true)
     const playerRef = useRef(null)
     const [src, setSrc] = useState('')
     const {name, track, preview, albumCover} = useSelector(
         state => state.player)
     const [volume, setVolume] = useState(50)
-
     useEffect(() => {
         if (playerRef.current) {
-            console.log('works')
             paused ? playerRef.current.pause() : playerRef.current.play()
         }
     }, [paused])
@@ -72,11 +73,23 @@ export function MusicPlayer() {
         }
 
         loadMusic()
-
     }, [preview])
+    useEffect(() => {
+        const endHandler = event => generateNewTrack()
+        if (playerRef.current) {
+            playerRef.current.addEventListener('ended', endHandler)
+        }
+        
+        if (localStorageService.getValue('volume')) {
+            setVolume(+localStorageService.getValue('volume'))
+        }
+        return () => playerRef.current && playerRef.current.removeEventListener('ended',
+            endHandler)
+    }, [])
 
     function changeVolume(event) {
         playerRef.current && (playerRef.current.volume = event.target.value / 100)
+        localStorageService.setValue('volume', event.target.value)
         setVolume(event.target.value)
     }
 
