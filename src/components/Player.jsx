@@ -47,13 +47,14 @@ const CoverImage = styled('div')({
 
 export function MusicPlayer() {
     const theme = useTheme()
+
     const {generateNewTrack} = useActions()
     const [paused, setPaused] = useState(true)
     const playerRef = useRef(null)
     const [src, setSrc] = useState('')
     const {name, track, preview, albumCover} = useSelector(
         state => state.player)
-    const [volume, setVolume] = useState(+localStorageService.getValue('volume') || 50)
+    const [volume, setVolume] = useState(50)
     useEffect(() => {
         if (playerRef.current) {
             paused ? playerRef.current.pause() : playerRef.current.play()
@@ -75,7 +76,10 @@ export function MusicPlayer() {
         loadMusic()
     }, [preview])
     useEffect(() => {
-        const endHandler = event => generateNewTrack()
+        const endHandler = event => {
+            generateNewTrack()
+            setVolume(+localStorageService.getValue('volume') || 50)
+        }
         if (playerRef.current) {
             playerRef.current.addEventListener('ended', endHandler)
         }
